@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../dist/css/style.css">
+        <title>Creative Canvas</title>
+    </head>
+    <body>
+        <nav>
+            <div class="logo">
+                <img class="toolbar-icon" src="../dist/img/icons8-krita-64.png">
+                <h4>Creative Canvas</h4>
+            </div>
+            <div id="tools" class="tools">
+                <a href="#" onclick="SaveImage()" id="img-file" download="painter-Image"><img class="toolbar-icon" src="../dist/img/icons8-save-40.png"></a>
+                <a href="#" onclick="Clear()"><img class="toolbar-icon"  src="../dist/img/icons8-trash-40.png"></a></li>
+                <a href="https://www.linkedin.com/in/tavishicks/"><img class="toolbar-icon" src="../dist/img/icons8-linkedin-48.png"><br></a>
+                <a href="https://github.com/TavisHix"><img class="toolbar-icon" src="../dist/img/icons8-github-48.png"><br></a>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        <main>
+            <div>
+                <canvas id="my__canvas" > </canvas>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <input type="color" id="primary_color" class="field-radio" oninput="stroke_color = this.value" >
+            </div>
+            <div class="container">
+                <input type="range" min="1" max="100" oninput="stroke_width = this.value">
+            </div>
+            <div class="container">
+                <a href="#" onclick="Restore()"> 
+                    <img class="toolbar-icon" src="../dist/img/icons8-undo-48.png">
+                </a>
+            </div>
+        </footer>
+        <script src="main.js"></script>
+        <script src="slide.js"></script>
+    </body>
+</html>
