@@ -48,8 +48,6 @@ h4{
   font-size: 14px;
 }
 
-
-
 .burger {
   display: none;
   cursor: pointer;
@@ -150,13 +148,19 @@ footer{
     align-items: center;
     transition: transform 0.5s ease-in;
   }
-  
   .burger{
       display: block;
   }
 } 
-.tools-active{
-  transform: translateX(0%);
+
+.toggle-active{
+  width: 40%;
+  display: flex;
+}
+
+.toggle-inactive{
+  display: none;
+  width: 0;
 }
 
 

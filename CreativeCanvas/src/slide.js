@@ -1,48 +1,46 @@
+var open = false;
+
 const toolsSlide = () => {
     const burger = document.querySelector('.burger');
-    const toolOptions = document.querySelectorAll('.tools li');
     const tools = document.getElementById("tools");
     let display = getComputedStyle(tools).display;
-    let open = false;
 
     burger.addEventListener('click',() => {
-        //Toggle tools
-        if(open){
-            tools.style.display = "none";
-            tools.style.width = "0px";
-            open = false;
-        }else {
-            tools.style.width = "250px";
-            open = true;
-            tools.style.display = "flex";
+        if(tools.classList.contains("toggle-active")){
+            tools.classList.replace("toggle-active", "toggle-inactive");
+            this.open = false;
+        } else if(tools.classList.contains("toggle-inactive")){
+            tools.classList.replace("toggle-inactive", "toggle-active");
+            this.open = true;
+        } else {
+            tools.classList.add("toggle-active");
+            this.open = true;
         }
-        //Animate Links
-        toolOptions.forEach((link, index) => {
-            if(link.style.animation) {
-                link.style.animation = ''
-            } else {
-             link.style.animation = `toolsFade 0.5s ease forwards ${index / 7 + 1}s`
-            }
-         });
-
          //Burger Animation
          burger.classList.toggle('toggle');
     })
 }
 
 const screenResize = () => {
+    const burger = document.querySelector('.burger');
     window.addEventListener('resize', () => {
-        console.log(open);
-        if(window.screen.width > 768){
-            tools.style.display = "flex";
-            tools.style.width = "40%";
-        } else{
-            tools.style.display = "none";
-            tools.style.width = "0px";
+        console.log(typeof window.innerWidth);
+        if(window.innerWidth > 768){
+            tools.classList.replace("toggle-inactive", "toggle-active");
+            this.open = false;
+            if(burger.classList.contains("toggle")){
+                burger.classList.toggle('toggle');
+            }
         }
+        if (window.innerWidth < 768){
+            tools.classList.replace("toggle-active", "toggle-inactive")
+            console.log("this worked!")
+            if(burger.classList.contains("toggle")){
+                burger.classList.toggle('toggle');
+            }
+        } 
     }, false)
 }
-
 const app = () => {
     toolsSlide();
     screenResize();

@@ -9,16 +9,13 @@ let is_drawing = false;
 let colorButton = document.getElementById("primary_color");
 let colorDiv = document.getElementById("color_val");
 
-console.log(window.screen.width)
-console.log(window.screen.height)
+
 
 
 document.addEventListener('DOMContentLoaded', setupCanvas);
 
 function setupCanvas(){
     canvas = document.getElementById('my__canvas');
-    // canvas.width = window.screen.width * .70;
-    // canvas.height = window.screen.height * 0.60;
     canvas.width = window.innerWidth - (window.innerWidth * 0.3);
     canvas.height = window.innerHeight * 0.70;
     ctx = canvas.getContext("2d"); 
@@ -118,46 +115,6 @@ function SaveImage() {
     imageFile.setAttribute('href', canvas.toDataURL())
 }
 
-
-// OpenImage
-function OpenImage(ev){
-   console.log(ev);
-    var ctx = document.getElementById('canvas').getContext('2d');
-    img = new Image();
-    f = document.getElementById("file").files[0];
-    url = window.URL || window.webkitURL;
-    src = url.createObjectURL(f);
-
-    img.src = src;
-    img.onload = function() {
-        ctx.drawImage(img, 0, 0);
-        url.revokeObjectURL(src);
-    }
-
-    document.getElementById("file").addEventListener("change", draw, false)
-    // let img = new Image();
-    // img.onload = function(){
-    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //     ctx.drawImage(img, 0, 0);
-    // }
-    // img.src = document.querySelector("file").value;
-}
-
-// Auto resizing the canvas on differnt 
-// function resizeCanvas() {
-//     savedImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-//     canvas.width = window.screen.width * .70;
-//     canvas.height = window.screen.height * 0.60;
-
-//   console.log(window.screen.width)
-//   console.log(window.screen.height)
-//   console.log(window.screen.width * 0.70)
-//   console.log(window.screen.height * 0.60) 
-//     // Redraw everything after resizing the window
-    
-//     ctx.putImageData(savedImageData, 0, 0);
-// }
-
 // Auto resizing the canvas on differnt 
 function resizeCanvas() {
     savedImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -173,15 +130,4 @@ function resizeCanvas() {
 colorButton.onchange = function() {
   colorDiv.innerHTML = colorButton.value;
   colorDiv.style.color = colorButton.value;
-}
-
-//Open modal
-function OpenModal(){
-  document.querySelector('.modal').style.display = "flex";
-}
-
-
-//Close modal and clear the input
-function CloseModal(){
-  document.querySelector('.modal').style.display = "none";
 }
