@@ -6,3 +6,6 @@ This project serves as a refresher on some basic HTML and CSS while also learnin
 
 ## Screenshot of Project Page
 ![Image of JS-Paint](https://github.com/TavisHix/CreativeCanvas/blob/main/CreativeCanvas/dist/img/CCimage.PNG)
+
+## Live demo
+[Try it out!](https://tavishix.github.io/CreativeCanvas/CreativeCanvas/src/index.html#)
